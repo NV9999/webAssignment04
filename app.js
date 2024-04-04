@@ -19,11 +19,11 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Define routes
-const productRoutes = require('./routes/productRoutes');
-const userRoutes = require('./routes/userRoutes');
-const commentRoutes = require('./routes/commentRoutes');
-const cartRoutes = require('./routes/cartRoutes');
-const orderRoutes = require('./routes/orderRoutes');
+const productRoutes = require('./src/routes/productRoutes');
+const userRoutes = require('./src/routes/userRoutes');
+const commentRoutes = require('./src/routes/commentRoutes');
+const cartRoutes = require('./src/routes/cartRoutes');
+const orderRoutes = require('./src/routes/orderRoutes');
 
 app.use('/api/products', productRoutes);
 //app.use('/api/users', userRoutes);
