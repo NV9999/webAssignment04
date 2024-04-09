@@ -15,7 +15,10 @@ const commentSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    image: String,
+    image: {
+        type: String,
+        required: true
+    },
     text: {
         type: String,
         required: true

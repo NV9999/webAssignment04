@@ -3,12 +3,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
+
+
+const app = express();
+
+app.use(cors());
 
 
 dotenv.config();
 
 
-const app = express();
+
 
 
 app.use(bodyParser.json());
@@ -21,7 +27,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // Define routes
 const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
-const commentRoutes = require('./src/routes/commentRoutes');
+//const commentRoutes = require('./src/routes/commentRoutes');
+const commentRoute = require('./src/routes/commentRoute');
 const cartRoutes = require('./src/routes/cartRoutes');
 const orderRoutes = require('./src/routes/orderRoutes');
 
@@ -29,7 +36,9 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 //app.use('/api/comments', commentRoutes);
 app.use('/api/carts', cartRoutes);
-//app.use('/api/orders', orderRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/comments', commentRoute);
+
 
 module.exports = app;
 
