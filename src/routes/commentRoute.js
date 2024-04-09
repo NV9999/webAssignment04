@@ -83,7 +83,7 @@ router.post('/', async (req, res) => {
 
 
 
-// Update a comment by ID
+
 // Update a comment by ID
 router.put('/:id', async (req, res) => {
     // Destructure the request body
